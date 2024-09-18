@@ -2,35 +2,40 @@ using UnityEngine;
 
 public class ModelSwitcher : MonoBehaviour
 {
-    public GameObject ossoModel;
-    public GameObject cerebroModel;
-    public GameObject outroModel;
+    public GameObject ossoModel;      // Referência ao modelo de ossos
+    public GameObject cerebroModel;   // Referência ao modelo de cérebro
+    public GameObject outroModel;     // Referência ao modelo de corpo feminino
 
-public void ShowOssos()
-{
-    Debug.Log("Showing Ossos");
-    HideAllModels();
-    ossoModel.SetActive(true);
-}
+    void Start()
+    {
+        // Ao iniciar o app, mostramos apenas o modelo de ossos
+        ossoModel.SetActive(true);    // Ativa o modelo de ossos
+        cerebroModel.SetActive(false); // Desativa o modelo de cérebro
+        outroModel.SetActive(false);   // Desativa o modelo de corpo feminino
+    }
 
-public void ShowCerebro()
-{
-    HideAllModels();
-    cerebroModel.SetActive(true);  // Ativa o modelo de cérebro
-}
+    public void ShowOssos()
+    {
+        HideAllModels();
+        ossoModel.SetActive(true);  // Mostra o modelo de ossos
+    }
 
-public void ShowOutroModel()
-{
-    HideAllModels();
-    outroModel.SetActive(true);  // Ativa o modelo de corpo feminino
-}
+    public void ShowCerebro()
+    {
+        HideAllModels();
+        cerebroModel.SetActive(true);  // Mostra o modelo de cérebro
+    }
 
-private void HideAllModels()
-{
-    Debug.Log("Hiding all models");
+    public void ShowOutroModel()
+    {
+        HideAllModels();
+        outroModel.SetActive(true);  // Mostra o modelo de corpo feminino
+    }
 
-    ossoModel.SetActive(false);
-    cerebroModel.SetActive(false);
-    outroModel.SetActive(false);
-}
+    private void HideAllModels()
+    {
+        ossoModel.SetActive(false);   // Desativa o modelo de ossos
+        cerebroModel.SetActive(false);  // Desativa o modelo de cérebro
+        outroModel.SetActive(false);   // Desativa o modelo de corpo feminino
+    }
 }
